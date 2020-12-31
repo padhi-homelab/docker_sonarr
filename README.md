@@ -3,7 +3,7 @@
 <a href='https://microbadger.com/images/padhihomelab/sonarr'><img src='https://img.shields.io/microbadger/layers/padhihomelab/sonarr/latest?logo=docker&logoWidth=24&style=for-the-badge'></img></a>
 <a href='https://hub.docker.com/r/padhihomelab/sonarr'><img src='https://img.shields.io/docker/image-size/padhihomelab/sonarr/latest?label=size%20%5Blatest%5D&logo=docker&logoWidth=24&style=for-the-badge'></img></a>
 
-A multiarch [Sonarr] Docker image, based on [Alpine Linux].
+A multiarch [Sonarr] Docker image, based on [Debian Linux].
 
 |        386         |       amd64        |       arm/v6       |       arm/v7       |       arm64        |      ppc64le       |       s390x        |
 | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
@@ -26,5 +26,5 @@ Runs `Sonarr` with WebUI served on port 8989.
 _<More details to be added soon>_
 
 
-[Alpine Linux]: https://alpinelinux.org/
+[Debian Linux]: https://debian.org/
 [Sonarr]:       https://sonarr.tv/
