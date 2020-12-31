@@ -22,6 +22,7 @@ RUN chmod +x /etc/docker-entrypoint.d/setup-volume.sh \
  && apt update \
  && apt upgrade -yq \
  && apt install -yq ca-certificates-mono \
+                    libmediainfo0v5 \
                     mono-devel \
                     wget \
  && apt autoremove -yq \
