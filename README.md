@@ -13,7 +13,7 @@ A multiarch [Sonarr] Docker image, based on [Alpine Linux].
 
 ```
 docker run --detach \
-           -p 7878:7878 \
+           -p 8989:8989 \
            -e DOCKER_UID=`id -u` \
            -v /path/to/store/configs:/configs \
            -v /path/to/client/downloads:/downloads \
@@ -21,7 +21,7 @@ docker run --detach \
            -it padhihomelab/sonarr
 ```
 
-Runs `Sonarr` with WebUI served on port 7878.
+Runs `Sonarr` with WebUI served on port 8989.
 
 _<More details to be added soon>_
 
