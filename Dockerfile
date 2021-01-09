@@ -1,6 +1,6 @@
 FROM padhihomelab/debian-base:10.0_0.19.0_git.212b7514
 
-ARG SONARR_VERSION=3.0.4.1042
+ARG SONARR_VERSION=3.0.4.1059
 
 ADD "https://download.sonarr.tv/v3/phantom-develop/${SONARR_VERSION}/Sonarr.phantom-develop.${SONARR_VERSION}.linux.tar.gz" \
     /tmp/sonarr.tar.gz
