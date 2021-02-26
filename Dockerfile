@@ -1,6 +1,6 @@
 FROM padhihomelab/debian-base:10.0_0.19.0_git.212b7514
 
-ARG SONARR_VERSION=3.0.4.1129
+ARG SONARR_VERSION=3.0.4.1132
 
 ADD "https://download.sonarr.tv/v3/phantom-develop/${SONARR_VERSION}/Sonarr.phantom-develop.${SONARR_VERSION}.linux.tar.gz" \
     /tmp/sonarr.tar.gz
@@ -24,6 +24,7 @@ RUN chmod +x /etc/docker-entrypoint.d/setup-volume.sh \
  && apt install -yq ca-certificates-mono \
                     libmediainfo0v5 \
                     mono-devel \
+                    tzdata \
                     wget \
  && apt autoremove -yq \
  && apt clean
