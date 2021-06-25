@@ -1,6 +1,6 @@
 FROM padhihomelab/debian-base:10.0_0.19.0_git.212b7514
 
-ARG SONARR_VERSION=3.0.6.1196
+ARG SONARR_VERSION=3.0.6.1266
 
 ADD "https://download.sonarr.tv/v3/main/${SONARR_VERSION}/Sonarr.main.${SONARR_VERSION}.linux.tar.gz" \
     /tmp/sonarr.tar.gz
