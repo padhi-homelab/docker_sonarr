@@ -1,14 +1,16 @@
-FROM padhihomelab/debian-base:10.0_0.19.0_git.212b7514
+FROM padhihomelab/debian-base:11.0_0.19.0_git.212b7514
 
-ARG SONARR_VERSION=3.0.6.1266
+ARG SONARR_VERSION=3.0.6.1342
 
 ADD "https://download.sonarr.tv/v3/main/${SONARR_VERSION}/Sonarr.main.${SONARR_VERSION}.linux.tar.gz" \
     /tmp/sonarr.tar.gz
 
-COPY sonarr.sh       /usr/local/bin/sonarr
-COPY setup-volume.sh /etc/docker-entrypoint.d/setup-volume.sh
+COPY sonarr.sh \
+     /usr/local/bin/sonarr
+COPY entrypoint-scripts \
+     /etc/docker-entrypoint.d/99-extra-scripts
 
-RUN chmod +x /etc/docker-entrypoint.d/setup-volume.sh \
+RUN chmod +x /etc/docker-entrypoint.d/99-extra-scripts/*.sh \
              /usr/local/bin/sonarr \
  && cd /tmp \
  && tar -xvzf sonarr.tar.gz \
