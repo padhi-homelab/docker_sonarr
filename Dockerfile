@@ -1,6 +1,6 @@
-FROM padhihomelab/debian-base:11.3_0.19.0_git.212b7514
+FROM padhihomelab/debian-base:11.4_0.19.0_git.212b7514
 
-ARG SONARR_VERSION=3.0.8.1507
+ARG SONARR_VERSION=3.0.9.1549
 
 ADD "https://download.sonarr.tv/v3/main/${SONARR_VERSION}/Sonarr.main.${SONARR_VERSION}.linux.tar.gz" \
     /tmp/sonarr.tar.gz
@@ -41,5 +41,5 @@ VOLUME [ "/config", "/downloads", "/tv" ]
 
 CMD [ "sonarr" ]
 
-HEALTHCHECK --start-period=10s --interval=30s --timeout=5s --retries=3 \
-        CMD ["wget", "--tries", "5", "-qSO", "/dev/null",  "http://localhost:8989/"]
+HEALTHCHECK --start-period=10s --interval=30s --timeout=5s \
+        CMD ["wget", "--tries", "5", "-qSO", "/dev/null",  "http://127.0.0.1:8989/"]
