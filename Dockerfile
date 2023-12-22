@@ -1,8 +1,21 @@
-FROM padhihomelab/debian-base:11.6_0.19.0_git.212b7514
+FROM padhihomelab/alpine-base:3.19.0_0.19.0_0.2 as base
+ARG TARGETARCH
 
-ARG SONARR_VERSION=3.0.10.1567
+FROM base AS base-amd64
+ENV SONARR_ARCH=x64
 
-ADD "https://download.sonarr.tv/v3/main/${SONARR_VERSION}/Sonarr.main.${SONARR_VERSION}.linux.tar.gz" \
+FROM base AS base-arm64
+ENV SONARR_ARCH=arm64
+
+FROM base AS base-armv7
+ENV SONARR_ARCH=arm
+
+FROM base-${TARGETARCH}${TARGETVARIANT}
+
+ARG SONARR_VERSION=4.0.0.738
+ARG SONARR_BRANCH=develop
+
+ADD "https://download.sonarr.tv/v4/${SONARR_BRANCH}/${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux-musl-${SONARR_ARCH}.tar.gz" \
     /tmp/sonarr.tar.gz
 
 COPY sonarr.sh \
@@ -12,29 +25,17 @@ COPY entrypoint-scripts \
 
 RUN chmod +x /etc/docker-entrypoint.d/99-extra-scripts/*.sh \
              /usr/local/bin/sonarr \
+ && apk add --no-cache --update \
+            icu-libs \
+            libintl \
+            libmediainfo \
+            sqlite-libs \
+            tzdata \
  && cd /tmp \
  && tar -xvzf sonarr.tar.gz \
  && rm -rf Sonarr/Sonarr.Update \
            /tmp/sonarr.tar.gz \
- && mv /tmp/Sonarr /sonarr \
- && apt update \
- && apt install -yq apt-transport-https \
-                    dirmngr \
-                    gnupg \
-                    ca-certificates \
- && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
- # TODO: Switch to `stable-bullseye` channel when available
- && echo "deb https://download.mono-project.com/repo/debian stable-buster main" | tee /etc/apt/sources.list.d/mono-stable.list \
- && update-ca-certificates -v \
- && apt update \
- && apt upgrade -yq \
- && apt install -yq ca-certificates-mono \
-                    libmediainfo0v5 \
-                    mono-devel \
-                    tzdata \
-                    wget \
- && apt autoremove -yq \
- && apt clean
+ && mv /tmp/Sonarr /sonarr
 
 EXPOSE 8989
 VOLUME [ "/config", "/downloads", "/tv" ]

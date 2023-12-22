@@ -2,4 +2,4 @@
 
 set -e
 
-mono --debug /sonarr/Sonarr.exe -nobrowser -data=/config
+/sonarr/Sonarr -nobrowser -data=/config
