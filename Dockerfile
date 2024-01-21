@@ -9,10 +9,10 @@ ENV SONARR_ARCH=arm64
 
 FROM base-${TARGETARCH}${TARGETVARIANT}
 
-ARG SONARR_VERSION=4.0.0.738
+ARG SONARR_VERSION=4.0.1.953
 ARG SONARR_BRANCH=develop
 
-ADD "https://download.sonarr.tv/v4/${SONARR_BRANCH}/${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux-musl-${SONARR_ARCH}.tar.gz" \
+ADD "https://github.com/Sonarr/Sonarr/releases/download/v${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux-musl-${SONARR_ARCH}.tar.gz" \
     /tmp/sonarr.tar.gz
 
 COPY sonarr.sh \
