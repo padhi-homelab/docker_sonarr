@@ -1,4 +1,4 @@
-FROM padhihomelab/alpine-base:3.19.0_0.19.0_0.2 as base
+FROM padhihomelab/alpine-base:3.19.1_0.19.0_0.2 as base
 ARG TARGETARCH
 
 FROM base AS base-amd64
@@ -9,7 +9,7 @@ ENV SONARR_ARCH=arm64
 
 FROM base-${TARGETARCH}${TARGETVARIANT}
 
-ARG SONARR_VERSION=4.0.1.953
+ARG SONARR_VERSION=4.0.1.1114
 ARG SONARR_BRANCH=develop
 
 ADD "https://github.com/Sonarr/Sonarr/releases/download/v${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux-musl-${SONARR_ARCH}.tar.gz" \
