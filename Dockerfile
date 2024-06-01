@@ -9,8 +9,8 @@ ENV SONARR_ARCH=arm64
 
 FROM base-${TARGETARCH}${TARGETVARIANT}
 
-ARG SONARR_VERSION=4.0.4.1515
-ARG SONARR_BRANCH=develop
+ARG SONARR_VERSION=4.0.5.1710
+ARG SONARR_BRANCH=main
 
 ADD "https://github.com/Sonarr/Sonarr/releases/download/v${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux-musl-${SONARR_ARCH}.tar.gz" \
     /tmp/sonarr.tar.gz
