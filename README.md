@@ -1,6 +1,6 @@
 # docker_sonarr
 
-[![build status](https://img.shields.io/github/actions/workflow/status/padhi-homelab/docker_sonarr/docker-release.yml?label=BUILD&branch=main&logo=github&logoWidth=24&style=flat-square)](https://github.com/padhi-homelab/docker_sonarr/actions?query=workflow%3A%22Docker+CI+Release%22)
+[![build status](https://img.shields.io/github/actions/workflow/status/padhi-homelab/docker_sonarr/docker-release.yml?label=BUILD&branch=main&logo=github&logoWidth=24&style=flat-square)](https://github.com/padhi-homelab/docker_sonarr/actions/workflows/docker-release.yml)
 [![testing size](https://img.shields.io/docker/image-size/padhihomelab/sonarr/testing?label=SIZE%20%5Btesting%5D&logo=docker&logoColor=skyblue&logoWidth=24&style=flat-square)](https://hub.docker.com/r/padhihomelab/sonarr/tags)
 [![latest size](https://img.shields.io/docker/image-size/padhihomelab/sonarr/latest?label=SIZE%20%5Blatest%5D&logo=docker&logoColor=skyblue&logoWidth=24&style=flat-square)](https://hub.docker.com/r/padhihomelab/sonarr/tags)
   
